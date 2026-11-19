@@ -4,6 +4,7 @@ Statisk demo (testdata, ingen backend). Én HTML-fil pr. side – intet build, i
 
 - `index.html` – guidet demo
 - `fuld-demo.html` – fuld demo (Rider + Recruit)
+- `entry.html` – dao Hire Entry: kun ansættelsesflowet (Ansøgning → AI-interview → HR-interview → prøveperiode → fuld ansættelse)
 
 ## Publicér med GitHub Pages
 Settings → Pages → *Deploy from a branch* → `main` / `(root)` → Save.
