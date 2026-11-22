@@ -104,7 +104,7 @@ const SLOTS=[['tor 20/11','10:00'],['tor 20/11','13:30'],['fre 21/11','09:00'],[
 const MEET={teams:['💻','Teams-møde','15 min. Link sendes på SMS og mail'],phone:['📞','Telefonmøde','HR ringer dig op'],person:['🤝','Personligt møde','På terminalen']};
 const KPIS=[['ontime','Punktlighed',92,'%','⏰'],['scan','Scanning ved overdragelse',95,'%','📦'],['proc','Procedure i pakkeshop',95,'%','🏪'],['absence','Fravær (dage)',1,'#','📅'],['incidents','Hændelser',1,'#','⚠️']];
 
-const S={view:'cand',lang:'da',src:'landing',step:'landing',form:{name:'Mikkel Jensen',phone:'+45 22 33 44 55',area:'KBH',veh:'van',lang:'da',lic:'B',licYears:'1-3',attest:false,keep:false},
+const S={view:'cand',lang:'da',src:'landing',step:'landing',form:{name:'Mikkel Jensen',phone:'+45 22 33 44 55',email:'mikkel.jensen@mail.dk',area:'KBH',veh:'van',lang:'da',lic:'B',licYears:'1-3',attest:false,keep:false},
  ask:[],chat:[],qi:0,typing:false,questions:[{id:'Q1',cid:'K3102',name:'Sara Holm',q:'Kan jeg tage min hund med i bilen om natten?',at:'08:12',status:'open'},{id:'Q2',cid:'K3105',name:'Omar Haddad',q:'Hvad sker der hvis jeg bliver syg på en nat?',at:'07:40',status:'open'}],me:null,meet:'teams',slot:null,sel:null,filter:'all',kpiTab:'api',toast:null,log:[],emply:[]};
 
 // ---------- AI (eksempel – i drift Azure OpenAI i dao's Azure, pseudonymiseret input) ----------
@@ -203,7 +203,7 @@ function cand(){
  if(S.step==='landing') return box(`
   <div class="bg-dao text-white rounded-3xl p-6"><p class="text-xs font-black opacity-80">STRAKSANSØGNING · 30 SEK.</p><h1 class="text-3xl font-black mt-1 leading-tight">Vil du være en af nattens stjerner?</h1><p class="mt-2 text-sm opacity-90">Kør pakker fra dao’s terminaler ud til pakkeshops. Faste natruter · akkord efter 3F.</p></div>
   <div class="bg-white rounded-2xl shadow-sm p-5 mt-4 grid gap-3">
-   ${inp('name','Fulde navn')}${inp('phone','Mobilnummer')}
+   ${inp('name','Fulde navn')}${inp('phone','Mobilnummer')}${inp('email','E-mail – du får beskeder på både SMS og mail')}
    <label class="text-sm font-bold">Område<select data-f="area" class="mt-1 w-full border rounded-xl px-3 py-2.5">${Object.entries(AREAS).map(([k,v])=>`<option value="${k}" ${S.form.area===k?'selected':''}>${v}</option>`).join('')}</select></label>
    <div><p class="text-sm font-bold">Køretøj</p><div class="flex gap-2 mt-1">${Object.entries(VEH).map(([k,v])=>`<button data-act="f" data-k="veh" data-v="${k}" class="flex-1 py-2 rounded-xl border-2 text-sm font-bold ${S.form.veh===k?'border-dao bg-dao-soft text-dao':'border-neutral-200'}">${v}</button>`).join('')}</div></div>
    <div><p class="text-sm font-bold">Kørekort</p><div class="grid grid-cols-2 gap-2 mt-1">${Object.entries(LIC).map(([k,v])=>`<button data-act="f" data-k="lic" data-v="${k}" class="py-2 px-2 rounded-xl border-2 text-sm font-bold text-left ${S.form.lic===k?'border-dao bg-dao-soft text-dao':'border-neutral-200'}">${v}${LIC_HELP[k]?`<span class="block text-[10px] font-normal text-neutral-500">${LIC_HELP[k]}</span>`:''}</button>`).join('')}</div></div>
@@ -214,14 +214,14 @@ function cand(){
    <p class="text-xs text-neutral-500">Lige nu søger vi i ${AREAS[S.form.area].split(' ·')[0]}: <b>${seeking(S.form.area).join(', ')||'ingen lige nu'}</b>. Ved at sende accepterer du, at dao behandler dine oplysninger til rekruttering.</p>
    <button data-act="apply" class="w-full py-3 rounded-full font-extrabold text-white bg-dao">Send ansøgning</button>
   </div>
-  <p class="text-center text-xs text-neutral-500 mt-3">Søgt via Emply (dao.as, LinkedIn, Jobindex)? Så får du samme SMS automatisk.</p>`);
+  <p class="text-center text-xs text-neutral-500 mt-3">Søgt via Emply (dao.as, LinkedIn, Jobindex)? Så får du samme SMS og mail automatisk.</p>`);
  if(S.step==='waitSms'){const c=S.me,se=seeking(c.area);return box(`
-  <p class="text-xs font-bold text-neutral-500">SMS · få sekunder efter</p>
+  <p class="text-xs font-bold text-neutral-500">SMS + mail · få sekunder efter</p>
   <div class="bg-white rounded-2xl shadow-sm p-4 mt-2"><p class="text-xs text-neutral-500">dao · nu</p><p class="mt-1">Tak for din ansøgning, ${esc(c.name.split(' ')[0])} 🌙 Lige nu søger vi ${se.length?'chauffører med '+se.join(' og '):'ikke nye chauffører'} i ${AREAS[c.area].split(' ·')[0]}. ${c.stage==='wait'?`Vi har gemt din ansøgning og sender dig en SMS, så snart vi har brug for ${VEH_WHO[c.veh]}.`:'Du er velkommen til at søge igen senere.'}</p></div>
   <div class="bg-sky-50 text-sky-900 rounded-2xl p-3 mt-3 text-xs">Det er ikke en afvisning: dao søger lige nu efter bestemte køretøjer. ${c.stage==='wait'?'Din ansøgning gemmes i op til 6 måneder, og du kan altid bede om at få den slettet.':''}</div>
   ${c.stage==='wait'?pathCard(c):''}`)}
  if(S.step==='sms') return box(`
-  <p class="text-xs font-bold text-neutral-500">SMS · få sekunder efter</p>
+  <p class="text-xs font-bold text-neutral-500">SMS + mail · få sekunder efter</p>
   <div class="bg-white rounded-2xl shadow-sm p-4 mt-2"><p class="text-xs text-neutral-500">dao · nu</p><p class="mt-1">Godt nyt, ${esc(S.form.name.split(' ')[0])} 🌙 Vi har et ledigt job som ${VEH_JOB[S.form.veh]} i ${AREAS[S.form.area].split(' ·')[0]}. Første skridt er et kort interview med dao’s AI-assistent (ca. 10 min.) – bagefter booker du selv samtale: <span class="text-dao font-bold underline">dao.as/job/i/k3h9</span></p></div>
   <button data-act="openInterview" class="w-full mt-4 py-3 rounded-full font-extrabold text-white bg-dao">Åbn linket</button>
   ${pathCard(S.me)}`);
@@ -261,7 +261,7 @@ function bookView(){
 function smsBookView(){
  const c=S.me, fn=esc(c.name.split(' ')[0]), sl=SMS_SLOTS(0);
  const thread=[{t:`Tak for AI-interviewet, ${fn} 🌙 dao’s HR vil gerne tale med dig (15 min. på Teams). Svar med et tal:\n1) ${sl[0].join(' kl. ')}\n2) ${sl[1].join(' kl. ')}\n3) ${sl[2].join(' kl. ')}\nPasser ingen? Svar 0 for flere tider. Hellere telefon? Svar TLF.`},...(S.smsThread||[])];
- return `<p class="text-xs font-bold text-neutral-500">SMS · dao</p>
+ return `<p class="text-xs font-bold text-neutral-500">SMS · dao <span class="font-normal">· samme besked sendes på mail</span></p>
  <div id="chat" class="mt-2 grid gap-2">${thread.map(m=>m.me?`<div class="justify-self-end max-w-[80%] bg-dao text-white rounded-2xl rounded-br-md px-3 py-2 text-sm">${esc(m.t)}</div>`:`<div class="max-w-[88%] bg-white shadow-sm rounded-2xl rounded-bl-md px-3 py-2 text-sm whitespace-pre-line">${esc(m.t)}</div>`).join('')}</div>
  ${c.stage==='hr'?pathCard(c):`<p class="text-xs text-neutral-500 mt-3">Svar på SMS’en:</p><div class="grid grid-cols-5 gap-2 mt-1">${['1','2','3','0','TLF'].map(k=>`<button data-act="smsReply" data-v="${k}" class="py-3 rounded-xl bg-white border-2 font-black">${k}</button>`).join('')}</div>
  <p class="text-[11px] text-neutral-400 mt-2">Tiderne er ledige i HR’s Outlook-kalender lige nu. Svaret bookes automatisk – ingen telefon-tag.</p>`}`;
