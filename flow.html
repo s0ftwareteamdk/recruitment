@@ -35,7 +35,7 @@ a{color:var(--dao);font-weight:700}
 <p>Via Emply (dao.as, LinkedIn, Jobindex) eller straksansøgning på 30 sekunder. 15 sprog. Alle får svar på SMS og mail.</p>
 <div class="row">
 <div class="box b-g"><b>Faste krav – regel, ikke AI</b>18+, ret til at arbejde i Danmark, ren straffeattest. Ét nej → venlig afvisning med “svar MENNESKE”, så ringer HR.</div>
-<div class="box b-ai"><b>AI læser Emply-ansøgningen</b>Finder køretøj, kørekort og område med citat som bevis. Kun til matching – ikke vurdering.</div>
+<div class="box b-ai"><b>AI læser Emply-ansøgningen</b>Finder køretøj, kørekort og område med citat som bevis. Kun til matching – ikke vurdering. Også via CSV-import. Dubletter (samme telefon/e-mail) slås sammen.</div>
 <div class="box b-auto"><b>Match mod aktuelle behov</b>Område × køretøj × kørekort (inkl. lastbil/C). Ingen match → venteliste (6 mdr. med samtykke) og automatisk SMS, når behovet opstår.</div>
 </div></div></div>
 <div class="arrow"></div>
@@ -44,7 +44,7 @@ a{color:var(--dao);font-weight:700}
 <p>Kort AI-interview på kandidatens sprog (ca. 10 min.): motivation, nætter, erfaring, opstart og situationer. AI siger tydeligt, at den er AI – man kan altid bede om et menneske.</p>
 <div class="row">
 <div class="box b-ai"><b>Score + frafaldsrisiko → Emply</b>Opsummering og flag til HR. Pseudonymiseret: AI’en ser ikke navn eller telefon.</div>
-<div class="box b-auto"><b>Bedst egnede først</b>De højest scorede inviteres op til 2 samtaler pr. ledigt job. Resten får “du er på listen” og rykker op.</div>
+<div class="box b-auto"><b>Bedst egnede først</b>De højest scorede inviteres op til 2 samtaler pr. ledigt job – automatisk eller efter HR’s godkendelse (dao vælger). Resten får “du er på listen”.</div>
 <div class="box b-g"><b>Foreslået afvist – HR beslutter</b>Lav score samles i én liste. HR afviser med ét klik. AI afviser aldrig selv.</div>
 </div></div></div>
 <div class="arrow"></div>
@@ -66,7 +66,7 @@ a{color:var(--dao);font-weight:700}
 
 <div class="step"><div class="num">5</div><div class="card"><h2>Prøveperiode <span class="tag t-ai">AI-assisteret</span></h2>
 <p>Arbejdsgange og disciplin: punktlighed, scanning, procedure, fravær og hændelser over 28 dage. Check-ins i uge 1, 4, 8 og 12.</p>
-<div class="row"><div class="box b-g"><b>Data på tre måder</b>Integration med dao’s driftssystem, upload (CSV) eller manuel indtastning.</div><div class="box b-ai"><b>AI-flag og forslag</b>Afvigelser markeres før check-in – kun aggregerede tal.</div></div></div></div>
+<div class="row"><div class="box b-c"><b>Pulstjek de første 14 dage</b>Morgenen efter første nat med makker og første nat alene: “svar 1, 2 eller 3”. Svært → HR ringer samme dag.</div><div class="box b-g"><b>Data på tre måder</b>Integration med dao’s driftssystem, upload (CSV) eller manuel indtastning.</div><div class="box b-ai"><b>AI-flag og forslag</b>Afvigelser markeres før check-in – kun aggregerede tal.</div></div></div></div>
 <div class="arrow"></div>
 
 <div class="step"><div class="num" style="background:var(--ok)">✓</div><div class="card"><h2>Fuld ansættelse <span class="tag t-hr">HR</span></h2><p>HR bekræfter med ét klik – status sendes til Emply og logges.</p></div></div>
