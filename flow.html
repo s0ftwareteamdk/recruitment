@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="da"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>dao Hire Entry – flow</title>
+<style>
+:root{--dao:#E30613;--soft:#FDE8E9;--ink:#141414;--mute:#6b6b6b;--line:#e7e5e1;--ai:#6d28d9;--aisoft:#f1ebff;--hr:#141414;--auto:#0369a1;--autosoft:#e8f4fb;--ok:#047857;--oksoft:#e9f7f0}
+*{box-sizing:border-box}body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Inter,Arial,sans-serif;color:var(--ink);background:#f5f4f1}
+.wrap{max-width:1080px;margin:0 auto;padding:28px 18px 60px}
+h1{font-size:30px;margin:0;font-weight:900;letter-spacing:-.02em}.wm{color:var(--dao);font-weight:900}
+.sub{color:var(--mute);margin:6px 0 18px;font-size:15px}
+.legend{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:18px}.tag{font-size:11px;font-weight:800;padding:3px 8px;border-radius:6px}
+.t-ai{background:var(--ai);color:#fff}.t-hr{background:var(--hr);color:#fff}.t-auto{background:var(--autosoft);color:var(--auto)}.t-c{background:var(--soft);color:var(--dao)}
+.flow{display:grid;gap:0}
+.step{display:grid;grid-template-columns:44px 1fr;gap:14px;align-items:start}
+.num{width:44px;height:44px;border-radius:50%;background:var(--dao);color:#fff;display:grid;place-items:center;font-weight:900;font-size:18px}
+.card{background:#fff;border-radius:18px;padding:16px 18px;box-shadow:0 1px 2px rgba(0,0,0,.05)}
+.card h2{margin:0;font-size:18px;font-weight:900;display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.card p{margin:6px 0 0;font-size:14px;color:#333;line-height:1.45}
+.row{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:10px;margin-top:12px}
+.box{border-radius:12px;padding:10px 12px;font-size:13px;line-height:1.4}.box b{display:block;margin-bottom:2px}
+.b-c{background:var(--soft)}.b-ai{background:var(--aisoft)}.b-auto{background:var(--autosoft)}.b-ok{background:var(--oksoft)}.b-g{background:#f3f2ef}
+.arrow{margin-left:21px;width:2px;height:22px;background:#d4d1cb;position:relative}.arrow:after{content:"";position:absolute;left:-5px;bottom:-2px;border:6px solid transparent;border-top-color:#d4d1cb}
+.side{border-left:3px solid var(--dao);padding-left:10px}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:22px}@media(max-width:760px){.grid2{grid-template-columns:1fr}}
+ul{margin:6px 0 0;padding-left:18px;font-size:13px;line-height:1.5}
+.foot{color:var(--mute);font-size:12px;margin-top:22px}
+a{color:var(--dao);font-weight:700}
+</style></head><body><div class="wrap">
+<p style="margin:0 0 6px;font-size:13px;color:var(--mute)"><span class="wm">dao</span> Hire · Entry</p>
+<h1>Fra ansøgning til fast ansættelse</h1>
+<p class="sub">Hvad vi har bygget til dao’s afdækningsproces. AI forbereder og aflaster – mennesker hos dao træffer beslutningerne. <a href="https://s0ftwareteamdk.github.io/recruitment/entry.html">Prøv demoen ›</a></p>
+<div class="legend"><span class="tag t-c">Ansøger</span><span class="tag t-ai">AI</span><span class="tag t-hr">HR</span><span class="tag t-auto">Automatisk</span></div>
+
+<div class="flow">
+<div class="step"><div class="num">1</div><div class="card"><h2>Ansøgning <span class="tag t-c">Ansøger</span><span class="tag t-auto">Automatisk</span></h2>
+<p>Via Emply (dao.as, LinkedIn, Jobindex) eller straksansøgning på 30 sekunder. 15 sprog. Alle får svar på SMS og mail.</p>
+<div class="row">
+<div class="box b-g"><b>Faste krav – regel, ikke AI</b>18+, ret til at arbejde i Danmark, ren straffeattest. Ét nej → venlig afvisning med “svar MENNESKE”, så ringer HR.</div>
+<div class="box b-ai"><b>AI læser Emply-ansøgningen</b>Finder køretøj, kørekort og område med citat som bevis. Kun til matching – ikke vurdering.</div>
+<div class="box b-auto"><b>Match mod aktuelle behov</b>Område × køretøj × kørekort (inkl. lastbil/C). Ingen match → venteliste (6 mdr. med samtykke) og automatisk SMS, når behovet opstår.</div>
+</div></div></div>
+<div class="arrow"></div>
+
+<div class="step"><div class="num">2</div><div class="card"><h2>Pre-interview <span class="tag t-ai">AI</span></h2>
+<p>Kort AI-interview på kandidatens sprog (ca. 10 min.): motivation, nætter, erfaring, opstart og situationer. AI siger tydeligt, at den er AI – man kan altid bede om et menneske.</p>
+<div class="row">
+<div class="box b-ai"><b>Score + frafaldsrisiko → Emply</b>Opsummering og flag til HR. Pseudonymiseret: AI’en ser ikke navn eller telefon.</div>
+<div class="box b-auto"><b>Bedst egnede først</b>De højest scorede inviteres op til 2 samtaler pr. ledigt job. Resten får “du er på listen” og rykker op.</div>
+<div class="box b-g"><b>Foreslået afvist – HR beslutter</b>Lav score samles i én liste. HR afviser med ét klik. AI afviser aldrig selv.</div>
+</div></div></div>
+<div class="arrow"></div>
+
+<div class="step"><div class="num">3</div><div class="card"><h2>Interview <span class="tag t-hr">HR</span></h2>
+<p>SMS med 3 ledige tider fra HR’s Outlook – svar 1, 2 eller 3 (eller tryk i mailen). Teams-møde oprettes automatisk; telefon eller personligt som alternativ.</p>
+<div class="row"><div class="box b-g"><b>HR godkender</b>Én knap – synkes til Emply. Behovet tælles ned.</div><div class="box b-auto"><b>Ingen telefon-tag</b>Påmindelse dagen før. Flyt tid via link.</div></div></div></div>
+<div class="arrow"></div>
+
+<div class="step"><div class="num">4</div><div class="card"><h2>Opstart og første nat <span class="tag t-auto">Automatisk</span><span class="tag t-hr">HR</span></h2>
+<p>Kontrakt, kørekort og straffeattest set, udstyr, makker. Første nat planlægges med tid og makker – resten kører selv.</p>
+<div class="row">
+<div class="box b-auto"><b>Dagen før</b>Tjekliste (kørekort, attest, telefon, køretøj, tøj, mad) – mangler noget, får HR besked.</div>
+<div class="box b-auto"><b>Find vej + “Jeg er her”</b>Mødested med indgang og parkering. Makker og driftsleder får besked – advarsel, hvis ikke mødt 10 min. før.</div>
+<div class="box b-ai"><b>AI-makker + tolk</b>Svar døgnet rundt ud fra dao’s egne svar. Tolk: eget sprog ⇄ dansk, læses højt. Uheld → 112 + driftsleder.</div>
+<div class="box b-c"><b>Ny i Danmark</b>MitID, skattekort, NemKonto, e-Boks, trafikquiz – og påmindelse om at ombytte udenlandsk kørekort (180 dage).</div>
+</div></div></div>
+<div class="arrow"></div>
+
+<div class="step"><div class="num">5</div><div class="card"><h2>Prøveperiode <span class="tag t-ai">AI-assisteret</span></h2>
+<p>Arbejdsgange og disciplin: punktlighed, scanning, procedure, fravær og hændelser over 28 dage. Check-ins i uge 1, 4, 8 og 12.</p>
+<div class="row"><div class="box b-g"><b>Data på tre måder</b>Integration med dao’s driftssystem, upload (CSV) eller manuel indtastning.</div><div class="box b-ai"><b>AI-flag og forslag</b>Afvigelser markeres før check-in – kun aggregerede tal.</div></div></div></div>
+<div class="arrow"></div>
+
+<div class="step"><div class="num" style="background:var(--ok)">✓</div><div class="card"><h2>Fuld ansættelse <span class="tag t-hr">HR</span></h2><p>HR bekræfter med ét klik – status sendes til Emply og logges.</p></div></div>
+</div>
+
+<div class="grid2">
+<div class="card"><h2 style="font-size:16px">Integrationer</h2><ul>
+<li><b>Emply</b> – ansøgninger ind, resultater tilbage</li><li><b>Outlook/Teams</b> (Microsoft Graph) – ledige tider, møder, mail fra HR-postkassen</li>
+<li><b>dao’s SMS-gateway</b> – udgående SMS og svar (1/2/3, JA, MENNESKE)</li><li><b>Azure OpenAI</b> i dao’s Azure – interview, oversættelse, tolk, AI-makker</li><li><b>dao’s driftssystem</b> – KPI til prøveperioden</li></ul></div>
+<div class="card"><h2 style="font-size:16px">Principper</h2><ul>
+<li>AI forbereder – <b>HR beslutter</b>. Ingen automatisk afvisning via AI (EU’s AI-forordning)</li><li>Alt kører i <b>dao’s eget Azure</b> (EU)</li>
+<li>Pseudonymisering og logning af AI-beslutninger</li><li>Sletning: venteliste 6 mdr., afviste 6 mdr., tolk-samtaler gemmes ikke</li><li>15 sprog – HR skriver kun dansk</li></ul></div>
+</div>
+<p class="foot">Softwareteam ApS · prototype med testdata · <a href="https://s0ftwareteamdk.github.io/recruitment/entry.html">demo</a></p>
+</div></body></html>
